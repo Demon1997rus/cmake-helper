@@ -1,0 +1,2 @@
+# cmake-helper
+CMake-помощник
