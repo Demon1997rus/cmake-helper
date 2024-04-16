@@ -20,4 +20,4 @@ foreach(CMAKE_HELPER_FUNCTION ${CMAKE_HELPER_FUNCTIONS})
     include(${CMAKE_HELPER_FUNCTION})
 endforeach()
 
-add_compile_definitions(ROOT_PATH="..")
+add_definitions(-DROOT_PATH="..")
