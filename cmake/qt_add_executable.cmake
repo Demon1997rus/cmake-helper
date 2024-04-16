@@ -14,5 +14,10 @@ function(qt_add_executable TARGET_NAME)
     foreach(LIB ${LIBS})
         target_link_libraries(${TARGET_NAME} ${LIB})
     endforeach()
+    
+    # Если есть библиотеки Qt, линкуем их с исполняемым файлом
+    if(DEFINED QT_LIBRARIES_FOUND)
+        target_link_libraries(${TARGET_NAME} PRIVATE ${QT_LIBRARIES_FOUND})
+    endif()
 
 endfunction()

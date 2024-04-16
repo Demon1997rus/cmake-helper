@@ -1,4 +1,3 @@
-
 # Include guard
 if(DEFINED MY_CMAKE_HELPER_INCLUDED)
     return()
@@ -10,8 +9,15 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose Release or Debug" FORCE)
 endif()
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
+
 # Add cmake functions
-file(GLOB CMAKE_HELPER_FUNCTIONS ${CMAKE_CURRENT_SOURCE_DIR}/cmake/*.cmake)
-foreach(CMAKE_HELPER_FUNCTION ${CMAKE_HELPER_FILES})
-    include(${CMAKE_HELPER_FILE})
+file(GLOB_RECURSE CMAKE_HELPER_FUNCTIONS cmake-helper/cmake/*.cmake*)
+foreach(CMAKE_HELPER_FUNCTION ${CMAKE_HELPER_FUNCTIONS})
+    include(${CMAKE_HELPER_FUNCTION})
 endforeach()
+
+add_compile_definitions(ROOT_PATH="..")
