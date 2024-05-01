@@ -10,7 +10,16 @@ function(use_qt5)
     include_directories(${Qt5_INCLUDE_DIRS})
 
     # Сохранение библиотек Qt в глобальной переменной
-    set(QT_LIBRARIES_FOUND ${Qt5Core_LIBRARIES} ${Qt5Widgets_LIBRARIES} ${Qt5Gui_LIBRARIES} ${Qt5Network_LIBRARIES} ${Qt5OpenGL_LIBRARIES} ${Qt5Sql_LIBRARIES} ${Qt5Test_LIBRARIES} ${Qt5Concurrent_LIBRARIES} ${Qt5Xml_LIBRARIES} PARENT_SCOPE)
+    set(QT_LIBRARIES_FOUND  ${Qt5Core_LIBRARIES}
+                            ${Qt5Widgets_LIBRARIES}
+                            ${Qt5Gui_LIBRARIES}
+                            ${Qt5Network_LIBRARIES}
+                            ${Qt5OpenGL_LIBRARIES}
+                            ${Qt5Sql_LIBRARIES}
+                            ${Qt5Test_LIBRARIES}
+                            ${Qt5Concurrent_LIBRARIES}
+                            ${Qt5Xml_LIBRARIES}
+                            PARENT_SCOPE)
 endfunction()
 
 
