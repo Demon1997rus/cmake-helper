@@ -13,6 +13,10 @@ function(qt_add_library TARGET_NAME)
         set(LIBS ${LIBS} ${QT_LIBRARIES_FOUND})
     endif()
 
+    if(DEFINED LIBCURL_LIBRARIES_FOUND)
+        set(LIBS ${LIBS} ${LIBCURL_LIBRARIES_FOUND})
+    endif()
+
     # Цикл для добавления каждой библиотеки
     foreach(LIB ${LIBS})
         target_link_libraries(${TARGET_NAME} PRIVATE ${LIB})
